@@ -1,9 +1,6 @@
-<?php  include_once "header.html" ?>
-
-
+<?php require_once ROOT_PATH."view/admin/header.html"  ?>
  <div  class="col-md-offset-2 col-md-10">
-
-            <form  action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>"
+    <form  action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>"
                    class="form-horizontal" method="post"
                    enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?=$data['id']?>">
@@ -57,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label" >头像</label>
-                            <img src="<?='upload/'.$data['image']?>" height="75px" width="75px">
+                            <img src="<?='../../public/upload/'.$data['image']?>" height="75px" width="75px">
                             <input type="file" name="file" class="form-control">
                         </div>
                         <div class="form-group">
@@ -78,5 +75,5 @@
 
 
             </form>
-        </div>
-<?php  include_once "footer.html" ?>
+ </div>
+<?php require_once ROOT_PATH."view/admin/footer.html"  ?>

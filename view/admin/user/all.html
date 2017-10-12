@@ -1,5 +1,5 @@
-<?php require_once "header.html"  ?>
-<a href="adduser.php" class="btn btn-success">+添加用户</a>
+<?php require_once ROOT_PATH."view/admin/header.html"  ?>
+<a href="add.php" class="btn btn-success">+添加用户</a>
 <hr>
 <table class="table   table-hover">
     <tr>
@@ -14,7 +14,7 @@
     <tr>
         <td><?=$item['id']?></td>
         <td><?=$item['name']?></td>
-        <td><img src="<?='upload/'.$item['image']?>" height="75px" width="75px"></td>
+        <td><img src="<?='../../public/upload/'.$item['image']?>" height="75px" width="75px"></td>
         <?php if($item['sex']==1) :?>
         <td>男 </td>
         <?php else :?>
@@ -25,7 +25,7 @@
           <form action="delete.php" method="post">
               <input type="hidden" name="id" value="<?=$item['id']?>">
               <input type="submit" value="删除" class="btn btn-danger" onclick="return confirm('你确定要删除吗')">
-              <a href="user.php?id=<?=$item['id']?>" class="btn btn-primary">详情</a>
+              <a href="show.php?id=<?=$item['id']?>" class="btn btn-primary">详情</a>
               <a href="edit.php?id=<?=$item['id']?>" class="btn btn-info">编辑</a>
           </form>
         </td>
@@ -33,4 +33,4 @@
     <?php endforeach; ?>
 </table>
 
-<?php require_once "footer.html"  ?>
+<?php require_once ROOT_PATH."view/admin/footer.html"  ?>

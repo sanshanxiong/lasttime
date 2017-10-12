@@ -5,7 +5,8 @@
  * Date: 2017/10/10
  * Time: 14:58
  */
-require_once  "MyPDO.class.php";
+require_once "../../start.php";
+require_once ROOT_PATH."lib/MyPDO.class.php";
 if($_SERVER["REQUEST_METHOD"]=="GET")
 {
     $id =$_GET['id'];
@@ -13,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET")
     $sql="select id,password,name,address,sex,hobbies,descs,image,education from user  where id=$id";
     $user =$pdo->selectOne($sql);
     $data =$user;
-    require_once "views/edituser.html";
+    require_once ROOT_PATH."view/admin/user/edit.html";
 }
 else
 {
@@ -58,7 +59,7 @@ else
             //以时间戳重命名文件
             $new_name = time() . "." . $file_ext;
             //将文件移动到存储目录下
-            move_uploaded_file($_FILES["file"]["tmp_name"], UpLoadPath . $new_name);
+            move_uploaded_file($_FILES["file"]["tmp_name"], UPLOAD_PATH . $new_name);
             //echo "文件上传成功！";
             $image =$new_name;
 
@@ -83,6 +84,6 @@ else
     //显示添加成功的信息，并跳转到列表页
     $msg ="修改成功";
 
-    require_once "views/info.html";
-    header("refresh:2;url=users.php");
+    require_once ROOT_PATH."view/admin/info.html";
+    header("refresh:2;url=all.php");
 }

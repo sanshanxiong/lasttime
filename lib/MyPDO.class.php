@@ -5,7 +5,8 @@
  * Date: 2017/9/28
  * Time: 9:50
  */
-require_once 'config/config.php';
+
+// require_once 'config/config.php';  removed because it have included in star.php
 class MyPDO {
     protected  $pdo;
     public function __construct()
