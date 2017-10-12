@@ -1,0 +1,31 @@
+<?php  include_once "header.html" ?>
+
+<div class="col-md-offset-4 col-md-4">
+    <h3>
+        ID：<?=$data["id"]?> <img src="<?='upload/'.$data['image']?>" height="150px" width="150px">
+    </h3>
+    <h3>
+        Password：<?=$data["password"]?>
+    </h3>
+    <h3>
+        Name：<?=$data["name"]?>
+    </h3>
+    <h3>
+        Address：<?=$data["address"]?>
+    </h3>
+    <h3>
+         
+        爱好：<?=$data["hobbies"]?>
+    </h3>
+    <h3>
+
+        简介：<?=$data["descs"]?>
+    </h3>
+    <h3>
+
+        添加时间：<?= $data["addtime"]?>
+    </h3>
+    <a href="users.php" class="btn btn-info">返回列表</a>
+</div>
+
+<?php  include_once "footer.html" ?>

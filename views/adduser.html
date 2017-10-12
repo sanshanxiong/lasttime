@@ -1,0 +1,71 @@
+<?php  include_once "header.html" ?>
+<div  class="col-md-offset-2 col-md-10">
+
+    <form  action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>"
+           class="form-horizontal" method="post"
+           enctype="multipart/form-data">
+        <div class="row">
+            <div  class=" col-md-4">
+                <div class="form-group">
+                    <label class="control-label" >用户名</label>
+                    <input type="text" id="name"  name="name"  class="form-control" >
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >性别</label>
+                    <input type="radio"   checked  name="sex" value="1"  class="checkbox-inline">男
+                    <input type="radio"    name="sex"  value ="0"  class="checkbox-inline">女
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >密码</label>
+                    <input type="password" id="password" name="password"  class="form-control" >
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >地址</label>
+                    <input type="text" id="address"  name="address"  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >文化程度</label>
+                    <select name="education">
+                        <option value="初中">初中</option>
+                        <option value="高中">高中</option>
+                        <option value="大学以上">大学以上</option>
+                        <option value="其它">其它</option>
+                    </select>
+
+                </div>
+            </div>
+            <div  class=" col-md-offset-1 col-md-5">
+                <div class="form-group">
+
+                    <label class="control-label" >兴趣爱好</label>
+                    <input type="checkbox" name="hobbies[]" value ="读书" class="checkbox-inline">读书
+                    <input type="checkbox" name="hobbies[]" value ="运动" class="checkbox-inline">运动
+                    <input type="checkbox" name="hobbies[]" value ="美食" class="checkbox-inline">美食
+                    <input type="checkbox" name="hobbies[]" value ="艺术" class="checkbox-inline">艺术
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >头像</label>
+                    <input type="file" name="file" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >自我简介</label>
+                    <textarea name ="descs" rows="6 " cols="40"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+         <div class="row col-md-offset-4">
+             <div class="form-group">
+                 <button type="submit" class="btn btn-warning">保存</button>
+                 <a href="users.php" class="btn btn-primary">返回列表</a>
+             </div>
+         </div>
+
+
+    </form>
+</div>
+<?php  include_once "footer.html" ?>
