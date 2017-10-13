@@ -14,7 +14,7 @@
     <tr>
         <td><?=$item['id']?></td>
         <td><?=$item['name']?></td>
-        <td><img src="<?='../../public/upload/'.$item['image']?>" height="75px" width="75px"></td>
+        <td><img src="<?='../../public/upload/'.$item['image']?>" height="50px" width="50px"></td>
         <?php if($item['sex']==1) :?>
         <td>男 </td>
         <?php else :?>
@@ -24,9 +24,10 @@
         <td>
           <form action="delete.php" method="post">
               <input type="hidden" name="id" value="<?=$item['id']?>">
-              <input type="submit" value="删除" class="btn btn-danger" onclick="return confirm('你确定要删除吗')">
               <a href="show.php?id=<?=$item['id']?>" class="btn btn-primary">详情</a>
               <a href="edit.php?id=<?=$item['id']?>" class="btn btn-info">编辑</a>
+              <input type="submit" value="删除" class="btn btn-danger" onclick="return confirm('你确定要删除吗')">
+
           </form>
         </td>
     </tr>
