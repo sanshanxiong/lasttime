@@ -32,11 +32,10 @@ else  //post
     }
     else
         $hobbies="";
-    //上传文件
+    //上传文件$_FILES是所有上传控件组成的数组，其name在这里就是key
     if ($_FILES["file"]["error"] > 0)//有错误，上传文件失败
     {
         //echo "Error: " . $_FILES["file"]["error"] . "<br />";
-
         $image="default".$sex.".jpg";
     }
     else
@@ -45,7 +44,7 @@ else  //post
         // echo "Type: " . $_FILES["file"]["type"] . "<br />";//文件类型
         // echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
         // echo "Stored in: " . $_FILES["file"]["tmp_name"];
-            if (!empty($_FILES['file']['name']))
+            if (!empty($_FILES['file']['name']))//说明选择了上传控件
             {
                 //获得文件扩展名
                 $temp_arr = explode(".", $_FILES["file"]["name"]);//将上传的文件名按照.拆分成数组。例如 myfile.gif 拆成 myfile 和 gif

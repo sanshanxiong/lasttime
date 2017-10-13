@@ -3,77 +3,68 @@
     <form  action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>"
                    class="form-horizontal" method="post"
                    enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?=$data['id']?>">
-                <input type="hidden" name="oldImage" value="<?=$data['image']?>">
-                <div class="row">
-                    <div  class=" col-md-4">
-                        <div class="form-group">
-                            <label class="control-label" >用户名</label>
-                            <input type="text" id="name"  name="name" value="<?=$data['name']?>" class="form-control" >
-
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" >性别</label>
-
-                            <input type="radio"     name="sex" value="1"    <?=$data['sex']==1?'checked':"" ?>   class="checkbox-inline">男
-                            <input type="radio"    name="sex"  value ="0"  <?=$data['sex']==0?'checked':"" ?>  class="checkbox-inline">女
-
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" >密码</label>
-                            <input type="text" id="password" name="password"  value="<?=$data['password']?>" class="form-control" >
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" >地址</label>
-                            <input type="text" id="address"  name="address"  value="<?=$data['address']?>" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" >文化程度</label>
-                            <select name="education">
+        <input type="hidden" name="id" value="<?=$data['id']?>">
+        <input type="hidden" name="oldImage" value="<?=$data['image']?>">
+        <div class="row">
+            <div  class=" col-md-4">
+                <div class="form-group">
+                    <label class="control-label" >用户名</label>
+                    <input type="text" id="name"  name="name" value="<?=$data['name']?>" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >性别</label>
+                    <input type="radio"     name="sex" value="1"    <?=$data['sex']==1?'checked':"" ?>   class="checkbox-inline">男
+                    <input type="radio"    name="sex"  value ="0"  <?=$data['sex']==0?'checked':"" ?>  class="checkbox-inline">女
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >密码</label>
+                    <input type="text" id="password" name="password"  value="<?=$data['password']?>" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >地址</label>
+                    <input type="text" id="address"  name="address"  value="<?=$data['address']?>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >文化程度</label>
+                    <select name="education">
                                 <option value="初中">初中</option>
                                 <option value="高中">高中</option>
                                 <option value="大学以上">大学以上</option>
                                 <option value="其它">其它</option>
                             </select>
-
-                        </div>
-                    </div>
-                    <div  class=" col-md-offset-1 col-md-5">
-                        <div class="form-group">
-
-                            <label class="control-label" >兴趣爱好</label>
-                            <?php foreach(['读书','运动','美食','艺术'] as $item) :?>
-                             <?php if(strstr($data['hobbies'],$item)!==false ) :?>
-                               <input type="checkbox" name="hobbies[]" checked value ="<?=$item?>" class="checkbox-inline"><?=$item?>
-                             <?php else :?>
-                            <input type="checkbox" name="hobbies[]" value ="<?=$item?>" class="checkbox-inline"><?=$item?>
-                            <?php endif ?>
-                            <?php endforeach;?>
-
-
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" >头像</label>
-                            <img src="<?='../../public/upload/'.$data['image']?>" height="75px" width="75px">
-                            <input type="file" name="file" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" >自我简介</label>
-                            <textarea name ="descs" rows="6 " cols="40"><?=$data['descs']?>
-                            </textarea>
-                        </div>
-
-                    </div>
                 </div>
-
-                <div class="row col-md-offset-4">
-                    <div class="form-group">
+            </div>
+            <div  class=" col-md-offset-1 col-md-5">
+                <div class="form-group">
+                    <label class="control-label" >兴趣爱好</label>
+                    <?php foreach(['读书','运动','美食','艺术'] as $item) :?>
+                       <?php if(strstr($data['hobbies'],$item)!==false ) :?>
+                         <input type="checkbox" name="hobbies[]" checked value ="<?=$item?>" class="checkbox-inline"><?=$item?>
+                       <?php else :?>
+                         <input type="checkbox" name="hobbies[]" value ="<?=$item?>" class="checkbox-inline"><?=$item?>
+                       <?php endif ?>
+                    <?php endforeach;?>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >头像</label>
+                    <img src="<?='../../public/upload/'.$data['image']?>" height="75px" width="75px">
+                    <input type="file" name="file" class="form-control">
+                 </div>
+                <div class="form-group">
+                    <label class="control-label" >自我简介</label>
+                    <textarea name ="descs" rows="6 " cols="40"><?=$data['descs']?>
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row col-md-offset-4">
+            <div class="form-group">
                         <button type="submit" class="btn btn-warning">保存</button>
                         <a href="all.php" class="btn btn-primary">返回列表</a>
                     </div>
-                </div>
+        </div>
 
 
-            </form>
+    </form>
  </div>
 <?php require_once ROOT_PATH."view/admin/footer.html"  ?>

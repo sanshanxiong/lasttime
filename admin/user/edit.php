@@ -21,7 +21,7 @@ else
     //获得post数据,这部分基本和添加时一样
     $image="";
     $id=$_POST['id'];//!!!
-    $oldImage =$_POST['oldImage']; //!!!
+    $oldImage =$_POST['oldImage']; //!!!原来的头像
     $name=$_POST["name"];
     $password = $_POST["password"];
     $address  =$_POST["address"];
