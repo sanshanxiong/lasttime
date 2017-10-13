@@ -6,14 +6,11 @@
  * Time: 13:46
  */
 require_once "../../start.php";
-require_once ROOT_PATH."lib/MyPDO.class.php";
+require_once ROOT_PATH."Model/User.class.php";
 
+$model =new User();
+$users = $model->selectMany();
 
-//生成PDO对象
-$pdo = new MyPDO();
-//查询数据库得到数据
-$sql ="select id,name,address,sex,hobbies,descs,image,education from user order by id desc ";  //insert update delete selet
-$users= $pdo->selectAll($sql);
 $data=$users;
 //数据交给视图显示属兔
 require_once ROOT_PATH."view/admin/user/all.html";

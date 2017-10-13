@@ -6,11 +6,9 @@
  * Time: 14:01
  */
 require_once "../../start.php";
-require_once  ROOT_PATH."/lib/MyPDO.class.php";
+require_once  ROOT_PATH."/model/User.class.php";
 $id=$_GET['id'];
-$pdo= new MyPDO();
-$sql ="select id,password,name,address,sex,hobbies,descs,image,education,addtime from user where id=:id";
-$data=["id"=>$id];
-$user = $pdo->selectOne($sql,$data);
+$model =new User();
+$user = $model->select(["id"=>$id]);
 $data =$user;
 require_once ROOT_PATH."view/admin/user/show.html";

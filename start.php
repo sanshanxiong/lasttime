@@ -11,8 +11,11 @@
 */
 //start.php
 define('ROOT_PATH',__DIR__.'/');//_DIR_获取的是它所处于的原始文件的路径。
-include_once ROOT_PATH."config/config.php";
 define("PUBLIC_PATH",ROOT_PATH."public/");
 define("UPLOAD_PATH",PUBLIC_PATH."upload/");
+require_once ROOT_PATH."config/config.php";
+require_once ROOT_PATH."lib/MyPDO.class.php";
+require_once ROOT_PATH."lib/Model.class.php";
 
-//echo getcwd()."<br/>";
+
+

@@ -6,7 +6,7 @@
  * Time: 14:42
  */
 require_once "../../start.php";
-require_once  ROOT_PATH."lib/MyPDO.class.php";
+require_once  ROOT_PATH."model/User.class.php";
 
 if($_SERVER["REQUEST_METHOD"]=="GET")
 {
@@ -64,17 +64,14 @@ else  //post
 
     }
     //写添加语句
-    $pdo = new MyPDO();
+    $model =new User();
 
-    $sql ="insert into user (name,password,address,sex,hobbies,education,image,descs ,addtime)
-                            values(:name,:password,:address,:sex,:hobbies,:education,:image,:descs,:addtime)";
     $data =["name"=>$name,"password"=>$password,"address"=>$address,
              "sex"=>$sex,"hobbies"=>$hobbies,"education"=>$education,"descs"=>$descs,
              "image"=>$image,"addtime"=> date('Y-m-d H:i:s',time())
            ];
+    $model->add($data);
 
-    //执行添加操作
-    $pdo->nonQuery($sql,$data);
     //显示添加成功的信息，并跳转到列表页
     $msg ="添加成功";
     require_once  ROOT_PATH."view/admin/info.html";

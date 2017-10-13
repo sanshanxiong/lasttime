@@ -6,14 +6,12 @@
  * Time: 14:58
  */
 require_once "../../start.php";
-require_once ROOT_PATH."lib/MyPDO.class.php";
+require_once ROOT_PATH."model/User.class.php";
 if($_SERVER["REQUEST_METHOD"]=="GET")
 {
     $id =$_GET['id'];
-    $pdo=new MyPDO();
-    $sql="select id,password,name,address,sex,hobbies,descs,image,education from user  where id=$id";
-    $user =$pdo->selectOne($sql);
-    $data =$user;
+    $model =new User();
+    $data =$model->select(["id"=>$id]);
     require_once ROOT_PATH."view/admin/user/edit.html";
 }
 else
@@ -71,16 +69,14 @@ else
 
     }
     //写添加语句
-    $pdo = new MyPDO();
-    $sql ="update user  set name= :name ,password=:password,address=:address, sex=:sex,
-               descs=:descs,education=:education,hobbies=:hobbies,image=:image
-  where id =:id";
+    $model  = new User();
+
     $data =["name"=>$name,"password"=>$password,"address"=>$address,"id"=>$id,
              "sex"=>$sex,"descs"=>$descs,"education"=>$education,"hobbies"=>$hobbies,
              "image"=>$image
         ];
     //执行添加操作
-    $pdo->nonQuery($sql,$data);
+   $model->update($data,$id);
     //显示添加成功的信息，并跳转到列表页
     $msg ="修改成功";
 
