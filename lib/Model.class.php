@@ -62,6 +62,7 @@ class Model
      */
     public function  selectMany($conditionData=null,$count=null,$orderby=null)
     {
+
         $sql="";
         if($count==null )
             $countSQL='';
@@ -78,7 +79,7 @@ class Model
             }
             $orderbySQL=' order by '.$orderbySQL;
         }
-        if(!isset($data))
+        if(!isset($conditionData))
         {
           $sql=sprintf("select * from %s  ",$this->_table);
         }
@@ -86,12 +87,12 @@ class Model
         {
             $sql=sprintf("select * from %s where %s ",$this->_table,
             $this->formatConditionFields($conditionData));
+
         }
          $sql=$sql.$orderbySQL.$countSQL;
 
         return $this->mypdo->selectAll($sql,$conditionData);
     }
-
     // name,age,sex,address
     private function formatFields($data)
     {
@@ -103,7 +104,6 @@ class Model
         $fields= implode(",",$array);
         return $fields;
     }
-
     //name=:name,age=:age,address=:address
     private function formatUpdateFields($data)
     {
@@ -135,7 +135,6 @@ class Model
         $fields= implode(" and ",$array);
         return $fields;
     }
-
     //张三，15，丹东
     private function createValues($data)
     {
@@ -148,7 +147,6 @@ class Model
         return $fields;
     }
     //pagerData=[PageSize PageIndex ]
-
     public function queryPage(&$pagerData,$condition=null)
     {
         if(isset($condition))

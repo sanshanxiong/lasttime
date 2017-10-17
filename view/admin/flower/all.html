@@ -1,0 +1,40 @@
+<?php require_once ROOT_PATH."view/admin/header.html"  ?>
+<a href="add.php" class="btn btn-success">+添加花卉</a>
+<a href="all.php" class="btn btn-info">ALL</a>
+<?php foreach($data["categories"] as $item) :?>
+<a href="<?='all.php?category_id='.$item['id']?>" class="btn btn-info"><?=$item['name']?></a>
+<?php endforeach; ?>
+<hr>
+<table class="table   table-hover">
+    <tr>
+        <td>id</td>
+        <td>Name</td>
+        <td>图片</td>
+        <td>价钱</td>
+        <td>数量</td>
+        <td>分类</td>
+        <td>操作</td>
+    </tr>
+    <?php foreach($data["flowers"] as $item) :?>
+    <tr>
+        <td><?=$item['id']?></td>
+        <td><?=$item['name']?></td>
+        <td><img src="<?='../../public/upload/'.$item['image']?>" height="50px" width="50px"></td>
+
+        <td><?=$item['price']?>$</td>
+        <td><?=$item['counts']?>$</td>
+        <td><?=$item['category_name']?></td>
+        <td>
+            <form action="delete.php" method="post">
+                <input type="hidden" name="id" value="<?=$item['id']?>">
+                <a href="show.php?id=<?=$item['id']?>" class="btn btn-primary">详情</a>
+                <a href="edit.php?id=<?=$item['id']?>" class="btn btn-info">编辑</a>
+                <input type="submit" value="删除" class="btn btn-danger" onclick="return confirm('你确定要删除吗')">
+
+            </form>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php require_once ROOT_PATH."view/admin/footer.html"  ?>

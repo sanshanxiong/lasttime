@@ -8,5 +8,5 @@
 
 class User extends Model{
 
-  
+
 }

@@ -1,0 +1,69 @@
+<?php require_once ROOT_PATH."view/admin/header.html"  ?>
+<div  class="col-md-offset-2 col-md-10">
+
+    <form  action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>"
+           class="form-horizontal" method="post"
+           enctype="multipart/form-data">
+        <div class="row">
+            <div  class=" col-md-4">
+                <div class="form-group">
+                    <label class="control-label" >花卉名称</label>
+                    <input type="text" id="name"  name="name"  class="form-control" >
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >数量</label>
+                    <input type="text" id="counts"  name="counts"  class="form-control" >
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >推荐</label>
+                    <input type="radio"    name="tuijian" value="1"  class="checkbox-inline">推荐
+                    <input type="radio"  checked   name="tuijian"  value ="0"  class="checkbox-inline">不推荐
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >价钱</label>
+                    <input type="text" id="price" name="price"  class="form-control" >
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" >分类</label>
+                    <select name="category_id">
+                    <?php foreach($data['categories'] as $item) :?>
+                        <option value="<?=$item['id']?>"><?=$item['name']?></option>
+                        <?php endforeach;?>
+                    </select>
+                </div>
+
+            </div>
+            <div  class=" col-md-offset-1 col-md-5">
+                <div class="form-group">
+
+                    <label class="control-label" >花语</label>
+                    <?php  foreach($data['flowerHints'] as $item) :?>
+                    <input type="checkbox" name="hints[]" value ="<?=$item['name']?>" class="checkbox-inline"><?=$item['name']?>
+                    <?php endforeach ;?>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >花卉图</label>
+                    <input type="file" name="file" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >描述</label>
+                    <textarea name ="descs" rows="6 " cols="40"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row col-md-offset-4">
+            <div class="form-group">
+                <button type="submit" class="btn btn-warning">保存</button>
+                <a href="all.php" class="btn btn-primary">返回列表</a>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+<?php require_once ROOT_PATH."view/admin/footer.html"  ?>

@@ -1,0 +1,33 @@
+<?php require_once ROOT_PATH."view/admin/header.html"  ?>
+
+<div class="col-md-offset-4 col-md-4">
+    <h3>
+        ID：<?=$data["id"]?> <img src="<?='../../public/upload/'.$data['image']?>" height="150px" width="150px">
+    </h3>
+    <h3>
+        Price：<?=$data["price"]?>
+    </h3>
+    <h3>
+        Counts：<?=$data["counts"]?>
+    </h3>
+    <h3>
+        分类：<?=$data["category_name"]?>
+    </h3>
+    <h3>
+        花语：<?=$data["hints"]?>
+    </h3>
+    <h3>
+        是否推荐：<?=$data["tuijian"]==1?"推荐":"不推荐"?>
+    </h3>
+    <h3>
+
+        简介：<?=$data["descs"]?>
+    </h3>
+    <h3>
+
+        添加时间：<?= $data["addtime"]?>
+    </h3>
+    <a href="all.php" class="btn btn-info">返回列表</a>
+</div>
+
+<?php require_once ROOT_PATH."view/admin/footer.html"  ?>
