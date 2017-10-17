@@ -2,8 +2,10 @@
 <a href="add.php" class="btn btn-success">+添加花卉</a>
 <a href="all.php" class="btn btn-info">ALL</a>
 <?php foreach($data["categories"] as $item) :?>
-<a href="<?='all.php?category_id='.$item['id']?>" class="btn btn-info"><?=$item['name']?></a>
+
+<a href="<?='all.php?category_id='.$item['id']?>"><?=$item['name']?></a>
 <?php endforeach; ?>
+
 <hr>
 <table class="table   table-hover">
     <tr>
@@ -22,7 +24,7 @@
         <td><img src="<?='../../public/upload/'.$item['image']?>" height="50px" width="50px"></td>
 
         <td><?=$item['price']?>$</td>
-        <td><?=$item['counts']?>$</td>
+        <td><?=$item['counts']?></td>
         <td><?=$item['category_name']?></td>
         <td>
             <form action="delete.php" method="post">

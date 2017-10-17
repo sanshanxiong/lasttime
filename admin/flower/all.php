@@ -11,10 +11,12 @@ require_once ROOT_PATH."model/Category.class.php";
 $model =new Flower();
 if(isset($_GET["category_id"]))
 {
+
     $flowers = $model->getAllFlowers(["category_id"=>$_GET["category_id"]]);
 }
 else
 {
+
     $flowers = $model->getAllFlowers();
 }
 $cateModel = new Category();
